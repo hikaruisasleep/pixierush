@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "MultiType Pixel";
+  src: url("fonts/MultiTypePixel-Display.otf");
+}
+
+@font-face {
+  font-family: "NHAAS";
+  font-weight: 100;
+  font-style: normal;
+  src: url("fonts/HaasGrotDisp-15XXThin.otf");
+}
+
+@font-face {
+  font-family: "NHAAS";
+  font-weight: 100;
+  font-style: italic;
+  src: url("fonts/HaasGrotDisp-16XXThinItalic.otf");
+}
+
+@font-face {
+  font-family: "NHAAS";
+  font-weight: 200;
+  font-style: normal;
+  src: url("fonts/HaasGrotDisp-25XThin.otf");
+}
+
+@font-face {
+  font-family: "NHAAS";
+  font-weight: 200;
+  font-style: italic;
+  src: url("fonts/HaasGrotDisp-26XThinItalic.otf");
+}
+
+@font-face {
+  font-family: "NHAAS";
+  font-weight: 300;
+  font-style: normal;
+  src: url("fonts/HaasGrotDisp-35Thin.otf");
+}
+
+@font-face {
+  font-family: "NHAAS";
+  font-weight: 300;
+  font-style: italic;
+  src: url("fonts/HaasGrotDisp-36ThinItalic.otf");
+}
+
+@font-face {
+  font-family: "NHAAS";
+  font-weight: 400;
+  font-style: normal;
+  src: url("fonts/HaasGrotDisp-45Light.otf");
+}
+
+@font-face {
+  font-family: "NHAAS";
+  font-weight: 400;
+  font-style: italic;
+  src: url("fonts/HaasGrotDisp-46LightItalic.otf");
+}
+
+@font-face {
+  font-family: "NHAAS";
+  font-weight: 500;
+  font-style: normal;
+  src: url("fonts/HaasGrotDisp-55Roman.otf");
+}
+
+@font-face {
+  font-family: "NHAAS";
+  font-weight: 500;
+  font-style: italic;
+  src: url("fonts/HaasGrotDisp-56Italic.otf");
+}
+
+@font-face {
+  font-family: "NHAAS";
+  font-weight: 600;
+  font-style: normal;
+  src: url("fonts/HaasGrotDisp-65Medium.otf");
+}
+
+@font-face {
+  font-family: "NHAAS";
+  font-weight: 600;
+  font-style: italic;
+  src: url("fonts/HaasGrotDisp-66MediumItalic.otf");
+}
+
+@font-face {
+  font-family: "NHAAS";
+  font-weight: 700;
+  font-style: normal;
+  src: url("fonts/HaasGrotDisp-75Bold.otf");
+}
+
+@font-face {
+  font-family: "NHAAS";
+  font-weight: 700;
+  font-style: italic;
+  src: url("fonts/HaasGrotDisp-76LBoldItalic.otf");
+}
+
+@font-face {
+  font-family: "NHAAS";
+  font-weight: 900;
+  font-style: normal;
+  src: url("fonts/HaasGrotDisp-95Black.otf");
+}
+
+@font-face {
+  font-family: "NHAAS";
+  font-weight: 900;
+  font-style: italic;
+  src: url("fonts/HaasGrotDisp-96BlackItalic.otf");
+}
+
+h1 {
+  font-family: "MultiType Pixel";
+}
+
+h2 {
+  font-family: "NHAAS";
+  font-weight: 700;
+}
+
+.text-fulfill {
+  display: flex;
+  container-type: inline-size;
+
+  --captured-length: initial;
+  --support-sentinel: var(--captured-length, 9999px);
+
+  & > [aria-hidden] {
+    visibility: hidden;
+  }
+
+  & > :not([aria-hidden]) {
+    flex-grow: 1;
+    container-type: inline-size;
+
+    --captured-length: 100cqi;
+    --available-space: var(--captured-length);
+
+    & > * {
+      --support-sentinel: inherit;
+      --captured-length: 100cqi;
+      --ratio: tan(atan2(var(--available-space), var(--available-space) - var(--captured-length)));
+      --font-size: clamp(1em, 1em * var(--ratio), var(--max-font-size, infinity * 1px) - var(--support-sentinel));
+      inline-size: var(--available-space);
+
+      &:not(.text-fit) {
+        display: block;
+        font-size: var(--font-size);
+
+        @container (inline-size > 0) {
+          white-space: nowrap;
+        }
+      }
+
+      &.text-fit {
+        --captured-length2: var(--font-size);
+        font-variation-settings: "opsz" tan(atan2(var(--captured-length2), 1px));
+      }
+    }
+  }
+}
+
+@property --captured-length {
+  syntax: "<length>";
+  initial-value: 0px;
+  inherits: true;
+}
+
+@property --captured-length2 {
+  syntax: "<length>";
+  initial-value: 0px;
+  inherits: true;
+}
