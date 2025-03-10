@@ -126,6 +126,12 @@ h2 {
   font-weight: 700;
 }
 
+p {
+  font-family: "NHAAS";
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
 .text-fulfill {
   display: flex;
   container-type: inline-size;

@@ -2,6 +2,8 @@
   import pixiepad from "$lib/pixiepad.png";
   import bg_pixelcity_vp9 from "$lib/bg-pixelcity-vp9.webm";
   import bg_pixelcity_av1 from "$lib/bg-pixelcity-av1.webm";
+  import bg_traincross_av1 from "$lib/bg-traincross-av1.webm";
+  import bg_traincross_vp9 from "$lib/bg-traincross-vp9.webm";
   import { onMount } from "svelte";
 
   function report() {
@@ -48,7 +50,7 @@
   </nav>
 
   <div class="h-screen w-full py-10 flex flex-col items-center justify-center relative">
-    <video autoplay muted loop playsinline class="fixed top-0 -z-50 h-full w-full md:w-md object-cover">
+    <video autoplay muted loop playsinline class="absolute top-0 -z-50 h-full w-full md:w-md object-cover">
       <source src={bg_pixelcity_av1} type="video/webm" />
       <source src={bg_pixelcity_vp9} type="video/webm" />
     </video>
@@ -78,6 +80,25 @@
         <i class="fa-solid fa-chevron-down absolute bottom-2 -left-[0.9ch]"></i>
         <i class="fa-solid fa-chevron-down absolute bottom-0 -left-[0.9ch]"></i>
       </span>
+    </div>
+  </div>
+
+  <div class="h-screen w-full flex flex-col text-white justify-center relative">
+    <video autoplay muted loop playsinline class="absolute top-0 -z-50 h-full w-full md:w-md object-cover">
+      <source src={bg_traincross_av1} type="video/webm" />
+      <source src={bg_traincross_vp9} type="video/webm" />
+    </video>
+    <div class="px-4">
+      <p>
+        Masuki dunia <span class="font-[MultiType_Pixel]">pIxIerush</span>
+        &mdash; di mana game menjadi hidup dan setiap cerita layak untuk dijelajahi. Dari petualangan mendebarkan hingga permata tersembunyi indie, kami menghadirkan ulasan,
+        wawasan, dan pembaruan terbaru dari dunia game.
+      </p>
+      <br />
+      <p>
+        Baik Anda pemain biasa maupun gamer hardcore, PixieRush adalah tempat yang tepat untuk menemukan apa yang sedang populer, apa yang akan datang, dan apa yang layak
+        untuk dimainkan. Siap memulai perjalanan? Mari selami dunia game bersama-sama!
+      </p>
     </div>
   </div>
 
